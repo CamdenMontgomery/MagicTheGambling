@@ -10,7 +10,7 @@ app.use(express.static('./public'))
 
 //Respond To Get Request At Base URL '/'
 app.get('/*',  async ( request, response ) => { //So Adding The Asterisk Does Indeed Make It Accept Any Text That Gets Passed Into The URL
-  response.sendFile('./public/index.html', { root: __dirname })
+  response.sendFile('./public/index.html')
 })
 
 // listen for requests
