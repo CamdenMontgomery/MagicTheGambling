@@ -1,0 +1,1224 @@
+
+
+.listItem {
+    color: white;
+    display: table;
+    height: 50px;
+    width: 100%;
+    border-bottom: 1px #363636 solid;
+    transition: background-color 0.1s
+}
+
+ul {
+  scrollbar-width: none;
+  overflow-y: scroll
+}
+
+ul::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.listItem:hover {
+  
+  color: black;
+  background-color: white 
+  
+}
+
+#open {
+    width: 114px;
+    font-size: 14px;
+    transform: translateY(65px);
+    z-index: 0;
+    margin-left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.7s;
+}
+
+#MainOverlay {
+  
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    z-index: -1;
+    top: 0px;
+    background: linear-gradient(180deg, #191919 -17%, #0e0e0e85 );
+    transition: all 0.7s;
+  
+}
+
+div#MainOverlay::before {
+    content: "";
+    width: 100%;
+    aspect-ratio: 487;
+    position: absolute;
+    top: 100%;
+    background: linear-gradient(45deg, transparent, #ffffff7a, transparent);
+    opacity: 52%;
+}
+
+#background {
+    background-image: url(https://cdn.glitch.global/6bfacd18-ec68-4393-a3a2-e5f2ff1f6c1b/upscale.jpg?v=1689279720724);
+    width: 100%;
+    height: 100%;
+    background-size: cover;  
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    transition: background-position 4s;
+    z-index: 0;
+    
+
+}
+
+/* Darken Behind The Panel*/
+div#darken-background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(0deg, #000000b8, transparent, #000000b8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0%;
+    z-index: 29;
+}
+
+/* New Pack Panel*/
+#panel {
+    position: absolute;
+    top: 10%;
+    display: table;
+    background: black;
+    background-size: 100%;
+    width: 0px;
+    height: 80%;
+    z-index: 2;
+    transition: all 0.1s;
+    opacity: 0%
+}
+
+div#panel::before {
+    background: linear-gradient(45deg, transparent, #ffffff7a, transparent);
+    width: 100%;
+    content: "";
+    position: absolute;
+    top: 0px;
+    z-index: 100;
+    height: 2px;
+    transition: all 0.2s;
+}
+
+div#panel::after {
+    background: linear-gradient(45deg, transparent, #ffffff7a, transparent);
+    width: 100%;
+    content: "";
+    height: 2px;
+    bottom: 0px;
+    z-index: 100;
+    position: absolute;
+    left: 0px;
+    transition: all 0.2s;
+}
+
+#send {
+  
+    border-width: 1px;
+    border-color: lightgray;
+    border-style: solid;
+    background-color: #1616168c;
+    border-radius: 100px;
+    aspect-ratio: 1;
+    height: 35px;
+    width: 35px;
+    color: white;
+    font-weight: 800;
+    font-size: small;
+  
+}
+
+.MainButton {
+  
+    border: solid;
+    border-radius: 32px;
+    height: 40px;
+    width: 80px;
+    border-width: 2px;
+    background-color: #2424245c;
+    border-color: gray;
+    color: white;
+    cursor: pointer;
+    margin-left: 20px;
+    font-family: fangsong;
+    transition: background-color 0.5s
+
+}
+
+.MainButton:hover {
+  background-color: #1414146e
+}
+
+
+
+.SecondaryButton {
+   
+    border: solid;
+    border-radius: 32px;
+    height: 30px;
+    width: 60px;
+    border-width: 2px;
+    background-color: #4040405c;
+    border-color: gray;
+    color: lightgrey;
+    font-size: 11px;
+    cursor: pointer;
+    margin-left: 10px;
+
+}
+
+.IndicatorSpace {
+  
+    float: left;
+    padding: 10px;
+    width: 36px;
+  
+}
+
+.NameSpace {
+  
+    color: inherit;
+    height: 75%;
+    float: left;
+    padding-top: 17px;
+    padding-left: 10px;
+    width: calc( 100% - 150px);
+  
+}
+
+button.remove-btn {
+    height: 100%;
+    float: right;
+    width: 76px;
+    color: inherit;
+    opacity: 40%;
+    background: none;
+    text-decoration-line: underline;
+    border: none;
+    font-style: italic;
+    cursor: pointer;
+}
+
+button.remove-btn:hover {
+    font-weight: bolder;
+    opacity: 100%;
+}
+
+
+
+
+
+
+
+
+
+/*Stolen Code Off The Internert | https://stackoverflow.com/questions/6410730/css-endless-rotation-animation*/
+
+@-webkit-keyframes rotating {
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    to{
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.rotating {
+    -webkit-animation: rotating 2s linear infinite;
+}
+
+
+
+@-webkit-keyframes appear {
+    from{
+        -webkit-transform: rotateY(90deg);
+    }
+    to{
+        -webkit-transform: rotateY(0deg);
+    }
+}
+
+.appearing {
+    -webkit-animation: appear 1s cubic-bezier(0.94, -0.49, 0.26, 0.85) 1;
+}
+
+
+
+/*Opening Animation*/
+@-webkit-keyframes open {
+    0%{
+        -webkit-transform: rotateZ(0deg) scaleY(0.99) translateY(1%);
+    }
+    5%{
+        -webkit-transform: rotateZ(1deg) scaleY(0.97) translateY(-1%);
+    }
+    10%{
+        -webkit-transform: rotateZ(-1deg) scaleY(0.94) translateY(3%);
+    }
+    15%{
+        -webkit-transform: rotateZ(2deg) scaleY(0.9) translateY(-5%);
+    }
+    20%{
+        -webkit-transform: rotateZ(-2deg) scaleY(0.86) translateY(-7%);
+    }    
+    25%{
+        -webkit-transform: rotateZ(0deg) scaleY(0.9) translateY(-5%);
+    }
+    30%{
+        -webkit-transform: rotateZ(1deg) scaleY(0.9) translateY(-5%);
+    }
+    35%{
+        -webkit-transform: rotateZ(-1deg) scaleY(0.9) translateY(-5%);
+    }
+    100%{
+        -webkit-transform: rotateZ(0deg) translate(0px, 228%);
+    }
+}
+
+.opening {
+    -webkit-animation: open 1s cubic-bezier(0.65, 0, 1, 1) 1;
+}
+
+
+
+/* My Custome Garbage */
+@-webkit-keyframes hovering {
+    0%{
+        -webkit-transform: translate(0%, 2px);
+    }
+    50%{
+        -webkit-transform: translate(0%, -2px);
+    }
+    100%{
+        -webkit-transform: translate(0%, 2px);
+    }
+}
+
+.hovering {
+    -webkit-animation: hovering 4s ease-in-out infinite;
+}
+
+
+
+
+
+/*Black Fade Background Image On Panel*/
+div#background-fade::before {
+    height: 100%;
+    width: 100%;
+    content: "";
+    position: absolute;
+    background: linear-gradient(90deg, black, transparent,black);
+}
+
+div#background-fade {
+    height: 100%;
+    width: 30%;
+    min-width: 290px;
+    float: left;
+    background-image: url(https://i.pinimg.com/736x/11/88/65/11886596d6120e39f00f15165960bacc.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+
+/* Pack Container | TODO: Turn Scalable*/
+.pack-container {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    background: black;
+    opacity: 15%;
+    bottom: 0px;
+    border-top: white solid 2px;
+    z-index: 11;
+    transition: all 0.7s;
+}
+
+
+
+.pack-container::before {
+    position: absolute;
+    aspect-ratio: 1;
+    height: 28px;
+    background: black;
+    rotate: 45deg;
+    x: inherit;
+    left: 50%;
+    bottom: 7px;
+    border: solid white 2px;
+    border-bottom: none;
+    border-right: none;
+    content: "";
+    transform: translate(-33.35%, 33.35%);
+    transition: inherit;
+}
+
+.pack-container::after {
+    position: absolute;
+    aspect-ratio: 1;
+    height: 9px;
+    background: black;
+    rotate: 45deg;
+    x: inherit;
+    left: 50%;
+    bottom: 16px;
+    border: solid white 1px;
+    content: "";
+    transform: translate(-30.35%, 30.35%);
+    transition: inherit;
+}
+
+.pack-container:hover {
+    height: 230px;
+    opacity: 86%;
+    transition: all 1s;
+}
+
+.pack-container:hover::before {
+    bottom: 216px;
+}
+
+.pack-container:hover::after {
+    bottom: 224px;
+    background: white;
+    border: solid 1px;
+    opacity: 203%;
+    box-shadow: 0 0px 15px white;
+}
+
+
+
+
+
+
+
+
+
+
+.card {
+    width: 186px;
+    aspect-ratio: 0.7159;
+    border-radius: calc(100% * 0.038181333);
+    background-size: cover;
+    background-repeat: round;
+    background-image: url(https://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=519188&type=card);
+    -webkit-transform-style: preserve-3d;
+    transform: rotateY(180deg);
+    margin: -128px;
+    z-index: -1;
+    transition: all 1s;
+    visibility: "visible";
+    position: inherit;
+}
+
+.flipped {
+  transform: rotateY(0deg);
+}
+
+.offscreened {
+      transform: translate(0px, -200%) rotateY(0deg);
+      opacity: 0%;
+      visibility : hidden;
+      position: absolute;
+}
+
+.card:not(.flipped):not(.offscreened):hover {
+    transform: translate(-19px, -29px) rotateY(180deg) rotateZ(10deg)
+}
+
+.card.flipped:not(.offscreened):hover {
+    width: 257px;
+    margin: -143px;
+}
+
+
+.card::before {
+    width: inherit;
+    height: inherit;
+    content: "";
+    background-size: cover;
+    background-repeat: round;
+    background-image: url(https://cdn.glitch.global/6bfacd18-ec68-4393-a3a2-e5f2ff1f6c1b/Magic_card_back.png?v=1689551053778);
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0px;
+    -webkit-transform-style: preserve-3d;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.pack-retainer {
+    height: 150px;
+    width: fit-content;
+    border-radius: 5px;
+    border: solid #ffffff69 1px;
+    margin-left: 20px;
+    background: radial-gradient(#ffffff1c, transparent);
+    display: flex;
+    align-items: center;
+    transition: all 1s;
+    justify-content: center;
+}
+
+img.pack-display {
+    height: 130px;
+    width: 67px;
+    margin: 24px;
+}
+
+.pack-retainer:hover .pack-retainer-text-box {
+    width: 345px;
+    opacity: 100%;
+}
+
+div.pack-retainer-text-box {
+    height: 100%;
+    width: 0px;
+    transition: all 1s;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    overflow-x: clip;
+    white-space: nowrap;
+    opacity: 0%;
+}
+
+h1.pack-retainer-title {
+    font-family: fangsong;
+    color: white;
+    font-size: 150%;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase
+}
+
+h2.pack-retainer-type {
+    color: #412200;
+    font-weight: 700;
+    font-family: system-ui;
+    width: 228px;
+    height: 22px;
+    text-align: center;
+    margin: 0;
+    font-size: medium;
+    display: flex;
+    background: linear-gradient(89deg, transparent, #bf331c 10%, #f5961d 30%, #f5961d 70%, #bf331c  90%, transparent);
+    align-items: center;
+    justify-content: center;
+    text-transform: CAPITALIZE
+}
+
+
+
+
+/*Scroll Bar*/
+
+.packs {
+    height: 202px;
+    width: 100%;
+    overflow-x: scroll;
+    display: flex;
+    align-items: flex-end;
+    overflow-y: hidden;
+    padding-bottom: 15px;
+}
+
+
+.packs::-webkit-scrollbar {height: 12px;color: white;display: block;position: absolute;top: 0px;}
+
+.packs::-webkit-scrollbar-thumb {
+    color: white;
+    background: white;
+    margin: 3px;
+    border-radius: 10px;
+    border: solid black 5px;
+}
+
+.packs::-webkit-scrollbar-track {
+    color: white;
+    background: #141414;
+    border: solid black 5px;
+}
+
+.pack-retainer:last-child {
+    margin-right: 360px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Add New Button */
+#add-new-pack {
+    height: 150px;
+    width: 0px;
+    border-radius: 5px;
+    border: dashed #ffffff52 1px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    color: #ffffff52;
+    font-size: xx-large;
+    cursor: pointer;
+    font-family: serif;
+    padding: 53px;
+}
+
+button#add-new-pack:hover {
+    color: white;
+    box-shadow: inset 0px 0px 4px 2px #fffffff2;
+    border: double #ffffff8f 1px;
+    font-weight: 800;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* New Pack Display*/
+.Pack-Display {
+    background-image: url(https://media.discordapp.net/attachments/512736380699410474/1128139841222213713/wp7585076.png?width=250&height=401);
+    width: 177px;
+    height: 279px;
+    background-size: cover;
+    background-repeat: round;
+}
+
+.Pack-Display::after {
+    content: "";
+    width: inherit;
+    background-image: url(https://cdn.glitch.global/6bfacd18-ec68-4393-a3a2-e5f2ff1f6c1b/NewCardTemplate.png?v=1689453582854);
+    height: inherit;
+    background-size: cover;
+    background-repeat: round;
+    transform: scale(1.08, 1.28) translate(0px, -11%);
+    display: table;
+}
+
+.Pack-Text-Display {
+    width: 100%;
+    height: 20%;
+    position: relative;
+    top: 81.2%;
+    background: linear-gradient(360deg, transparent, #000000bf 68%, transparent);
+}
+
+h1.Pack-Title-Display {
+    width: 100%;
+    height: 60%;
+    margin: 0px;
+    background: #ffffff00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* text-shadow: 0 0 20px black, 0 0 20px black,0 0 20px black; */
+    background: -webkit-linear-gradient(#ffffff, #bcbcbc, white);
+    -webkit-background-clip: text;
+    font-size: 28px;
+    -webkit-text-fill-color: transparent;
+    font-weight: bolder;
+    text-transform: UPPERCASE
+}
+
+h2.Pack-Type-Display {
+    width: 100%;
+    height: 40%;
+    margin: 0px;
+    background: linear-gradient(360deg, #000000 41%, transparent 100%);
+    color: gainsboro;
+    font-size: small;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    text-transform: CAPITALIZE
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+div#pack-slot {
+    width: 210px;
+    aspect-ratio: 0.7159;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective-origin: 50% 50%;
+    perspective: 957px;
+    flex-direction: column;
+    z-index: 1;
+    background: #03030321;
+    border-radius: 15px;
+    border: #00000024 solid 1px;
+}
+
+
+
+div#pack-slot .Pack-Display {
+    transition: opacity 2s, visibility 1s;
+    opacity: 100%;
+    visibility: visible;
+    position: absolute;
+    box-shadow: 0px 58px 12px 13px #00000066;
+
+}
+
+
+
+div#pack-drop-area {
+    position: absolute;
+    height: calc( 90% - 15vh);
+    width: calc( 100% - 13vh);
+    top: 4%;
+    margin: 13vh;
+    border: dashed white 2px;
+    border-radius: 17px;
+    opacity: 0%;
+    mix-blend-mode: overlay;
+    transition: opacity 1s;
+    z-index: 0
+}
+
+
+
+
+
+
+
+
+
+
+
+
+button.section {
+    background: linear-gradient(360deg, #efefef12, transparent);
+    height: 88%;
+    width: 50%;
+    border: none;
+    color: #c8c8c8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: fangsong;
+    font-size: larger;
+    font-weight: bold;
+}
+
+button.section.selected {background: radial-gradient(ellipse at bottom, #eacc24, transparent 18% ), radial-gradient(ellipse at bottom, #ea7c24, transparent);border: ridge #ffffff0d 2px;color: white;}
+button.section:hover {background: radial-gradient(ellipse at bottom, #c4c4c4, transparent 6% ), radial-gradient(ellipse at bottom, #b8a79a, transparent 30%);border: ridge #ffffff0d 2px;color: #ffffff;text-shadow: 0px 0px 17px white;}
+
+
+.header::after {
+    content: "";
+    width: 57%;
+    position: absolute;
+    /* bottom: inherit; */
+    color: white;
+    height: 1px;
+    /* left: 0px; */
+    transform: translate(0, 54px);
+    background: linear-gradient(90deg, transparent, white, transparent);
+    margin-left: -7.5%;
+}
+
+button.section.selected::after {
+    width: 21%;
+    height: 4px;
+    content: "";
+    position: absolute;
+    background: orange;
+    margin-top: 4%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 9px 3px #ff9016;
+}
+
+
+
+
+
+
+
+
+
+.sidebar {
+    width: 75%;
+    height: 15%;
+    background: #3d3d3d00;
+    /* border: ridge #00000036 2px; */
+    display: flex;
+    border-radius: 10px;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-end;
+    position: relative;
+    flex-wrap: nowrap;
+}
+
+.sidebar::before {
+    /* content: ""; */
+    position: absolute;
+    left: -10px;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(0deg, transparent 25%, #ffffff2b, transparent 75%);
+}
+
+button.mode {
+    border-radius: 100px;
+    width: 44px;
+    float: right;
+    cursor: pointer;
+    border: ridge #8d8b8b 1px;
+    margin: 7px;
+    aspect-ratio: 1;
+    background: radial-gradient(ellipse at center, transparent -67%, #44444469 );
+    box-shadow: 0px 0px 10px 0px #9c9c9c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s;
+}
+
+button.mode img {
+    width: 88%;
+    aspect-ratio: 1;
+}
+
+button.mode:hover {
+    border: ridge #ff870c 2px;
+    box-shadow: 0px 0px 10px 0px #f97e24;
+    background: radial-gradient(ellipse at center, transparent -67%, #ff8f002b );
+    width: 46px;
+}
+
+button.current-nav {
+    box-shadow: 0px 0px 10px 0px #ffffff;
+    border: ridge #ffffff 2px;
+    background: radial-gradient(ellipse at center, transparent -67%, #ffffff2b );
+}
+
+
+
+
+
+
+
+
+
+
+
+.menu-container {
+    height: 85%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    background: radial-gradient(circle at center, #ffffff0f, transparent 77%);
+}
+
+.card-list-container {
+    height: 100%;
+    width: 80%;
+    margin-top: 5%;
+    position: relative;
+}
+
+div#Loading {
+    top: 26px;
+    bottom: 0;
+    left: 0;
+    right: 0px;
+    position: absolute;
+    z-index: 29;
+    background: black;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    opacity: 0%;
+    visibility: hidden;
+    transition: opacity 0.5s;
+}
+
+ul#CardList {
+    width: 100%;
+    height: calc(100% - 85px);
+    padding: 0px;
+    margin: 0px;
+    container-type: size;
+    overflow: scroll;
+}
+
+.button-container {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    flex-direction: row;
+    margin: 20px;
+}
+
+li.placeholder-item {
+    color: white;
+    display: table;
+    height: 50px;
+    width: 100%;
+    border-bottom: 1px #121212 solid;
+    transition: background-color 0.1s;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+li.placeholder-item::before {
+    content: "";
+    width: 29px;
+    margin: 11px;
+    position: absolute;
+    opacity: 13%;
+    background-image: url(https://deckmaster.info/images/sets/HTR_S.png);
+    background-repeat: round;
+    background-size: cover;
+    height: 29px;
+}
+
+li.placeholder-item::after {
+    content: "Undiscovered Card";
+    position: absolute;
+    margin: 17px;
+    margin-left: 58px;
+    opacity: 10%;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Details Page*/
+.menu-container.details {
+    position: relative;
+    background: radial-gradient(circle at center, #ffffff0f, transparent 77%);
+    display: none;
+    opacity: 0%;
+    /* margin-top: 10%; */
+}
+
+.menu-container::after {
+    background: linear-gradient(90deg, transparent, #ffffff7a, transparent);
+    opacity: 11%;
+    width: 100%;
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    z-index: 100;
+    height: 2px;
+    transition: all 0.2s;
+}
+
+.menu {
+    border: white solid 1px;
+    box-shadow: 0px 0px 17px 7px #ffffff12;
+    width: 460px;
+    aspect-ratio: 1.7;
+    color: white;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    font-family: monospace;
+    font-size: large;
+    transform: rotateZ(359deg)  translateY(-69px);
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-image: url(https://clipground.com/images/mtg-clipart-5.png);
+    margin-bottom: 5px;
+}
+
+input.input {
+    background: none;
+    border: none;
+    position: relative;
+    border-bottom: white solid 1px;
+    width: 69px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    width: 80%;
+}
+
+input.input::after {
+    background: linear-gradient(90deg, transparent, #ffffff7a, transparent);
+    width: 100%;
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    z-index: 100;
+    height: 2px;
+    transition: all 0.2s;
+}
+
+.menu::before {
+    content: "";
+    position: absolute;
+    width: 108%;
+    height: 191px;
+    top: -17px;
+    left: -18px;
+    background: linear-gradient(180deg, black 32%, transparent);
+    transform: rotate(1deg);
+}
+
+
+
+
+
+
+
+
+h1#id-number {
+    color: #cacaca;
+    width: 76px;
+    font-size: small;
+    font-family: serif;
+    font-weight: 200;
+    text-shadow: 0 0 20px white;
+}
+
+
+
+
+/* New Done Button*/
+button.done-btn {
+    width: 35%;
+    height: 40px;
+    bottom: 7%;
+    left: 65%;
+    z-index: 100;
+    border: white solid 1px;
+    background: radial-gradient( circle at center, transparent, black);
+    padding: 0px;
+    color: #9f9f9f;
+    border-radius: 100px;
+    font-family: fangsong;
+    font-size: revert;
+    box-shadow: 0 0 16px 0px #ffffff40;
+    float: right;
+    cursor: pointer;
+}
+
+button.done-btn:hover {
+    background: radial-gradient( ellipse at center, #ffffff2e, transparent);
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.outer-btn-container {
+    height: 26px;
+    width: 99%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 14px;
+    margin-bottom: 24px;
+  
+}
+
+button.export-btn {
+
+    margin-right: 0px;
+    aspect-ratio: 1;
+    height: inherit;
+    background: none;
+    border: none;
+    background-repeat: no-repeat;
+    margin-left: 4px;
+    opacity: 40%;
+    cursor: pointer;
+    background-size: 117%;
+    background-image: url(https://www.freeiconspng.com/uploads/white-download-icon-png-32.png);
+    background-position: 44% 63%;
+}
+
+button.export-btn:hover {
+  opacity: 100%
+}
+
+
+button.delete-btn {
+    margin-right: 25px;
+    margin-left: 9px;
+    height: 24px;
+    padding: 6px;
+    border-radius: 100px;
+    background: none;
+    aspect-ratio: 1;
+    height: inherit;
+    border: #ff383891 ridge 2px;
+    background-repeat: no-repeat;
+    opacity: 40%;
+    cursor: pointer;
+    background-image: url(https://cdn4.iconfinder.com/data/icons/social-messaging-ui-coloricon-1/21/52-512.png);
+    background-size: 70%;
+    background-position: 54% 42%;
+}
+
+button.delete-btn:hover {
+  opacity: 100%
+}
+
+
+button.config-btn {
+    background: none;  
+    background-image: url(https://icon-library.com/images/white-gear-icon-png/white-gear-icon-png-12.jpg);
+    margin-left: 0px;
+    background-position: 50% 50%;
+    aspect-ratio: 1;
+    height: inherit;
+    border: none;
+    background-size: 62%;
+    background-repeat: no-repeat;
+    margin-left: 4px;
+    margin-right: 4px;
+    opacity: 40%;
+    cursor: pointer;
+}
+
+button.config-btn:hover {
+  opacity: 100%
+}
+
+
+.inner-btn-container {
+      height: 18px;
+    padding: 2px;
+    width: fit-content;
+    float: right;
+    overflow: hidden;
+    border-radius: 100px;
+    border: #ffffff30 ridge 2px;
+    margin-left: 47px;
+    transition: 0.3s;
+}
+
+.inner-btn-container:has( .config-btn:hover ), .inner-btn-container:has( .export-btn:hover ){
+  border-color: white;
+}
+
+
+
+div#image-drop {
+    position: absolute;
+    margin: 11px;
+    width: 252px;
+    height: 431px;
+    border: dashed white 2px;
+    border-radius: 10px;
+    opacity: 0%;
+    mix-blend-mode: overlay;
+    z-index: 100;
+    transition: 1s;
+}
+
+
+
+
+/* To Aid With Scrolling*/
+.placeholder-item:last-child, .listItem:last-child {
+  margin-bottom: 100px
+}

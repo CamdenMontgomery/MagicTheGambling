@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%; width: 100%; overflow: hidden">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="https://gatherer.wizards.com/Images/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="/main.js"></script>
+    <title>Customizer - Magic The Customizing</title>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body
+    class="__bm__extension"
+    style="
+      height: -webkit-fill-available;
+      display: flex;
+      width: 100%;
+      margin-bottom: 0px;
+      margin-right: 0px;
+      margin-top: 0px;
+      margin-left: 0px;
+      overflow: hidden;
+    "
+  >
+    <div id="background">
+      <div id="MainOverlay" style="">
+        <a href="https://gatherer.wizards.com/Pages/Default.aspx" target="_blank"><img
+          src="https://cdn.glitch.global/6bfacd18-ec68-4393-a3a2-e5f2ff1f6c1b/MTG_Primary_LL_2c_White_LG_V12.png?v=1689278170755"
+          style="aspect-ratio: 3; height: 62%; margin: 1%; margin-top: 0.8%"
+        /></a>
+      </div>
+      <div class="pack-container">
+        <div class="packs">
+          <button id="add-new-pack" fdprocessedid="20fsnk">+</button>
+ 
+        </div>
+      </div>
+      <div
+        class="gradient"
+        style="
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: radial-gradient(transparent, #000000f2 129%);
+          z-index: -4;
+        "
+      ></div>
+      <div id="pack-slot"></div>
+      <div id="pack-drop-area"></div>
+      <button id="open" fdprocessedid="aqb9c8" class="MainButton">Open</button>
+      <div id="darken-background">
+        <div id="panel" style="visibility: hidden; width: 100%; opacity: 0%; transition: all 0.1s ease 0s;">
+          <div id="background-fade">
+            <div id="image-drop"></div>
+            <div id="main-display" class="Pack-Display hovering" style="margin-bottom: 36px">
+              <div class="Pack-Text-Display">
+                <h1 id="title-display" class="Pack-Title-Display">EXAMPLE</h1>
+                <h2 id="subtitle-display" class="Pack-Type-Display">2-Card Plus Pack</h2>
+              </div>
+            </div>
+          </div>
+
+          <div style="
+              height: 100%;
+              width: 70%;
+              float: right;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-direction: column;
+            ">
+            
+            <div id="details-view" class="menu-container details                            " style="transition: opacity 2s ease 0s; opacity: 0; display: none; align-items: center; justify-content: flex-end;">
+              <div class="menu" style="color: #b0b0b0">
+                dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                create, sunt in culpa qui officia deserunt spells anim id have
+                laborum...
+                <i style="margin: 26px; color: white">...and as the creator of this new collection, you bestow upon
+                  the the name of...</i><input id="title-input" class="input" placeholder="Unbestowed Title..." fdprocessedid="ey4cz" style="
+                    font-size: x-large;
+                    font-family: auto;
+                    text-shadow: 0 0 20px white;
+                    border-color: wheat;
+                    margin-top: 24px;
+                    text-transform: uppercase;
+                  "><i style="margin: 12px; font-size: small">
+                  and a subtitle of... </i><input id="subtitle-input" class="input" placeholder="Unbestowed Subtitle..." fdprocessedid="ey4cz" style="
+                    width: 264px;
+                    font-style: italic;
+                    font-weight: 100;
+                    color: #ffffff;
+                    text-shadow: 0 0 20px white;
+                    border-color: #ffffff78;
+                    text-transform: capitalize;
+                  ">
+              </div>
+            </div>
+            <div id="list-view" class="menu-container                               current-menu" style="display: flex; opacity: 1; transition: opacity 2s ease 0s;">
+              <div class="card-list-container" style="">
+                <div style="
+                    width: 100%;
+                    height: 25px;
+                    display: table;
+                    border-bottom: white solid 1px;
+                  ">
+                  <div style="
+                      width: calc(100% - 80px);
+                      height: 25px;
+                      background: black;
+                      float: left;
+                    ">
+                    <input fdprocessedid="ipaywd" placeholder="Search..." style="
+                        height: 100%;
+                        width: 100%;
+                        border: none;
+                        padding: 0px;
+                        margin: 0px;
+                        color: white;
+                        background: black;
+                      ">
+                  </div>
+                  <div style="
+                      width: 80px;
+                      height: 25px;
+                      float: right;
+                      background: black;
+                    "></div>
+                </div>
+
+                <div id="Loading">
+                  <img src="https://cdn.glitch.global/735a4e5a-c099-408d-9e34-1b0af9497952/LoadingWheel.png?v=1689011326819" class="rotating" style="width: 60px; height: 60px; opacity: 110%">
+                </div>
+                <ul id="CardList">
+                  <li class="placeholder-item"></li>
+                  <li class="placeholder-item"></li>
+                  <li class="placeholder-item"></li>
+                  <li class="placeholder-item"></li>
+                  <li class="placeholder-item"></li>
+                  <li class="placeholder-item"></li>
+
+                </ul>
+              </div>
+              
+            </div>
+            <div class="sidebar"> <h1 id="id-number">pID: 000000</h1> <button class="done-btn" fdprocessedid="u96v6e" style="margin-right: calc( 50% - 126px );transform: translateX(50%);">Done</button>
+              <button id="nav-details" class="mode                            " fdprocessedid="5a7ph" style="
+">
+                <img src="https://cdn.glitch.global/6bfacd18-ec68-4393-a3a2-e5f2ff1f6c1b/white_quill-512.png?v=1689628082661">
+              </button>
+              <button id="nav-list" class="mode                               current-nav" fdprocessedid="mnbwi4">
+                <img src="https://cdn.glitch.global/6bfacd18-ec68-4393-a3a2-e5f2ff1f6c1b/scroll-unfurled_38914.png?v=1689628787549"></button><button id="nav-cards" class="mode" fdprocessedid="mnbwi4">
+                <img src="https://cdn.glitch.global/6bfacd18-ec68-4393-a3a2-e5f2ff1f6c1b/cards_icon.png?v=1689628937782">
+              </button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
